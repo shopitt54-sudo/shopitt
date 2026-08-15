@@ -6,7 +6,7 @@ export function Logo({ className = "h-7" }: { className?: string }) {
     <img
       src={logo.url}
       alt="Shopitt"
-      className={`${className} w-auto dark:brightness-0 dark:invert-0 dark:[filter:none]`}
+      className={`${className} w-auto dark:invert dark:hue-rotate-180`}
       draggable={false}
     />
   );
