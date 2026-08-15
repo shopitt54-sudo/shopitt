@@ -45,7 +45,7 @@ export type Post = {
   tags?: ShopTag[];
 };
 
-const creatorList = [
+const creatorList: Creator[] = [
   {
     id: "c1",
     name: "Zuri K.",
@@ -69,10 +69,9 @@ const creatorList = [
   { id: "c4", name: "Tino Fits", handle: "@tinofits", avatar: post5, newStory: true },
   { id: "c5", name: "Luxe Plug", handle: "@luxeplug", avatar: post6, verified: true },
   { id: "c6", name: "Sole Diary", handle: "@solediary", avatar: post3, newStory: true },
-] as const satisfies readonly Creator[];
-export const creators: Creator[] = [...creatorList];
-const C = creatorList;
 ];
+export const creators: Creator[] = creatorList;
+const C = creatorList as [Creator, Creator, Creator, Creator, Creator, Creator];
 
 export const posts: Post[] = [
   {
