@@ -45,7 +45,7 @@ export type Post = {
   tags?: ShopTag[];
 };
 
-export const creators: Creator[] = [
+const creatorList = [
   {
     id: "c1",
     name: "Zuri K.",
@@ -69,13 +69,16 @@ export const creators: Creator[] = [
   { id: "c4", name: "Tino Fits", handle: "@tinofits", avatar: post5, newStory: true },
   { id: "c5", name: "Luxe Plug", handle: "@luxeplug", avatar: post6, verified: true },
   { id: "c6", name: "Sole Diary", handle: "@solediary", avatar: post3, newStory: true },
+] as const satisfies readonly Creator[];
+export const creators: Creator[] = [...creatorList];
+const C = creatorList;
 ];
 
 export const posts: Post[] = [
   {
     id: "p1",
     kind: "product",
-    creator: creators[1],
+    creator: C[1],
     time: "2h",
     images: [media.post1, media.post5],
     dropTitle: "Forest Varsity Set",
@@ -93,7 +96,7 @@ export const posts: Post[] = [
   {
     id: "p2",
     kind: "inspiration",
-    creator: creators[0],
+    creator: C[0],
     time: "5h",
     images: [media.post2],
     caption: "Purple hour. No shopping list, just a mood I wanted to keep.",
@@ -104,7 +107,7 @@ export const posts: Post[] = [
   {
     id: "p3",
     kind: "product",
-    creator: creators[5],
+    creator: C[5],
     time: "8h",
     images: [media.post3],
     dropTitle: "Violet Sole 02",
@@ -119,7 +122,7 @@ export const posts: Post[] = [
   {
     id: "p4",
     kind: "inspiration",
-    creator: creators[2],
+    creator: C[2],
     time: "11h",
     images: [media.post4, media.post6],
     caption: "Print as tailoring. The continent has always done maximal well.",
@@ -139,9 +142,9 @@ export const discoverTiles = [
 ];
 
 export const shorts = [
-  { id: "s1", creator: creators[3], image: media.post5, caption: "Fit switch up — campus edition", likes: "2.1K", comments: "184", shares: "230" },
-  { id: "s2", creator: creators[0], image: media.post2, caption: "Old money aesthetic, Lusaka budget", likes: "5.6K", comments: "402", shares: "610" },
-  { id: "s3", creator: creators[5], image: media.post3, caption: "Unboxing the Violet Sole 02", likes: "1.3K", comments: "96", shares: "121" },
+  { id: "s1", creator: C[3], image: media.post5, caption: "Fit switch up — campus edition", likes: "2.1K", comments: "184", shares: "230" },
+  { id: "s2", creator: C[0], image: media.post2, caption: "Old money aesthetic, Lusaka budget", likes: "5.6K", comments: "402", shares: "610" },
+  { id: "s3", creator: C[5], image: media.post3, caption: "Unboxing the Violet Sole 02", likes: "1.3K", comments: "96", shares: "121" },
 ];
 
 export const alerts = [
