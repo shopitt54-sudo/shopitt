@@ -12,6 +12,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "../components/shopitt/AppShell";
+import { AuthProvider } from "../lib/auth";
+import { AuthModal } from "../components/shopitt/AuthModal";
 
 function NotFoundComponent() {
   return (
@@ -138,10 +140,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <AppShell>
-        <Outlet />
-      </AppShell>
+      <AuthProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <AppShell>
+          <Outlet />
+        </AppShell>
+        <AuthModal />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

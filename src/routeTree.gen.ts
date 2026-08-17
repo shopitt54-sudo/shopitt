@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as BagRouteImport } from './routes/bag'
+import { Route as ChatsRouteImport } from './routes/chats'
+import { Route as CreateRouteImport } from './routes/create'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SearchRouteImport } from './routes/search'
@@ -24,6 +27,21 @@ const IndexRoute = IndexRouteImport.update({
 const AlertsRoute = AlertsRouteImport.update({
   id: '/alerts',
   path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BagRoute = BagRouteImport.update({
+  id: '/bag',
+  path: '/bag',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatsRoute = ChatsRouteImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreateRoute = CreateRouteImport.update({
+  id: '/create',
+  path: '/create',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiscoverRoute = DiscoverRouteImport.update({
@@ -50,6 +68,9 @@ const ShortsRoute = ShortsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
+  '/bag': typeof BagRoute
+  '/chats': typeof ChatsRoute
+  '/create': typeof CreateRoute
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
@@ -58,6 +79,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
+  '/bag': typeof BagRoute
+  '/chats': typeof ChatsRoute
+  '/create': typeof CreateRoute
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
@@ -67,6 +91,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
+  '/bag': typeof BagRoute
+  '/chats': typeof ChatsRoute
+  '/create': typeof CreateRoute
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
@@ -74,13 +101,34 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/alerts' | '/discover' | '/profile' | '/search' | '/shorts'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/bag'
+    | '/chats'
+    | '/create'
+    | '/discover'
+    | '/profile'
+    | '/search'
+    | '/shorts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/alerts' | '/discover' | '/profile' | '/search' | '/shorts'
+  to:
+    | '/'
+    | '/alerts'
+    | '/bag'
+    | '/chats'
+    | '/create'
+    | '/discover'
+    | '/profile'
+    | '/search'
+    | '/shorts'
   id:
     | '__root__'
     | '/'
     | '/alerts'
+    | '/bag'
+    | '/chats'
+    | '/create'
     | '/discover'
     | '/profile'
     | '/search'
@@ -90,6 +138,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlertsRoute: typeof AlertsRoute
+  BagRoute: typeof BagRoute
+  ChatsRoute: typeof ChatsRoute
+  CreateRoute: typeof CreateRoute
   DiscoverRoute: typeof DiscoverRoute
   ProfileRoute: typeof ProfileRoute
   SearchRoute: typeof SearchRoute
@@ -110,6 +161,27 @@ declare module '@tanstack/react-router' {
       path: '/alerts'
       fullPath: '/alerts'
       preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bag': {
+      id: '/bag'
+      path: '/bag'
+      fullPath: '/bag'
+      preLoaderRoute: typeof BagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chats': {
+      id: '/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof ChatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create': {
+      id: '/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/discover': {
@@ -146,6 +218,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlertsRoute: AlertsRoute,
+  BagRoute: BagRoute,
+  ChatsRoute: ChatsRoute,
+  CreateRoute: CreateRoute,
   DiscoverRoute: DiscoverRoute,
   ProfileRoute: ProfileRoute,
   SearchRoute: SearchRoute,
