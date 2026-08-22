@@ -91,10 +91,10 @@ function Product() {
               Add to bag
             </button>
             <Link
-              to="/tryon"
+              to="/discover"
               className="flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium"
             >
-              <Sparkles className="h-4 w-4 text-[color:var(--pink)]" strokeWidth={1.6} /> Try on
+              <Sparkles className="h-4 w-4 text-[color:var(--pink)]" strokeWidth={1.6} /> More like this
             </Link>
             <button
               aria-label="Save"
