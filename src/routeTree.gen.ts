@@ -17,6 +17,7 @@ import { Route as CreateRouteImport } from './routes/create'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as SellerRouteImport } from './routes/seller'
 import { Route as ShortsRouteImport } from './routes/shorts'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as ProductProductIdRouteImport } from './routes/product/$productId'
@@ -61,6 +62,11 @@ const SearchRoute = SearchRouteImport.update({
   path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SellerRoute = SellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShortsRoute = ShortsRouteImport.update({
   id: '/shorts',
   path: '/shorts',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
+  '/seller': typeof SellerRoute
   '/shorts': typeof ShortsRoute
   '/studio': typeof StudioRoute
   '/product/$productId': typeof ProductProductIdRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
+  '/seller': typeof SellerRoute
   '/shorts': typeof ShortsRoute
   '/studio': typeof StudioRoute
   '/product/$productId': typeof ProductProductIdRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/discover': typeof DiscoverRoute
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
+  '/seller': typeof SellerRoute
   '/shorts': typeof ShortsRoute
   '/studio': typeof StudioRoute
   '/product/$productId': typeof ProductProductIdRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/discover'
     | '/profile'
     | '/search'
+    | '/seller'
     | '/shorts'
     | '/studio'
     | '/product/$productId'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/discover'
     | '/profile'
     | '/search'
+    | '/seller'
     | '/shorts'
     | '/studio'
     | '/product/$productId'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/discover'
     | '/profile'
     | '/search'
+    | '/seller'
     | '/shorts'
     | '/studio'
     | '/product/$productId'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   DiscoverRoute: typeof DiscoverRoute
   ProfileRoute: typeof ProfileRoute
   SearchRoute: typeof SearchRoute
+  SellerRoute: typeof SellerRoute
   ShortsRoute: typeof ShortsRoute
   StudioRoute: typeof StudioRoute
   ProductProductIdRoute: typeof ProductProductIdRoute
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller': {
+      id: '/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shorts': {
       id: '/shorts'
       path: '/shorts'
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiscoverRoute: DiscoverRoute,
   ProfileRoute: ProfileRoute,
   SearchRoute: SearchRoute,
+  SellerRoute: SellerRoute,
   ShortsRoute: ShortsRoute,
   StudioRoute: StudioRoute,
   ProductProductIdRoute: ProductProductIdRoute,
