@@ -50,8 +50,12 @@ function ShortItem({ item }: { item: (typeof shorts)[number] }) {
           <button className="rounded-full border border-white/60 px-3 py-1 text-[11px]">Follow</button>
         </div>
         <p className="mt-2 max-w-[32ch] text-sm">{item.caption}</p>
-        <Link to="/tryon" className="brand-gradient-bg mt-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold">
-          <Sparkles className="h-4 w-4" strokeWidth={1.8} /> Try this look
+        <Link
+          to="/product/$productId"
+          params={{ productId: item.id }}
+          className="brand-gradient-bg mt-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold"
+        >
+          <Sparkles className="h-4 w-4" strokeWidth={1.8} /> Shop this look
         </Link>
       </div>
     </section>
