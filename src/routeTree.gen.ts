@@ -18,7 +18,6 @@ import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ShortsRouteImport } from './routes/shorts'
-import { Route as TryonRouteImport } from './routes/tryon'
 import { Route as ProductProductIdRouteImport } from './routes/product/$productId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -66,11 +65,6 @@ const ShortsRoute = ShortsRouteImport.update({
   path: '/shorts',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TryonRoute = TryonRouteImport.update({
-  id: '/tryon',
-  path: '/tryon',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProductProductIdRoute = ProductProductIdRouteImport.update({
   id: '/product/$productId',
   path: '/product/$productId',
@@ -87,7 +81,6 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/shorts': typeof ShortsRoute
-  '/tryon': typeof TryonRoute
   '/product/$productId': typeof ProductProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -100,7 +93,6 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/shorts': typeof ShortsRoute
-  '/tryon': typeof TryonRoute
   '/product/$productId': typeof ProductProductIdRoute
 }
 export interface FileRoutesById {
@@ -114,7 +106,6 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/shorts': typeof ShortsRoute
-  '/tryon': typeof TryonRoute
   '/product/$productId': typeof ProductProductIdRoute
 }
 export interface FileRouteTypes {
@@ -129,7 +120,6 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/shorts'
-    | '/tryon'
     | '/product/$productId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -142,7 +132,6 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/shorts'
-    | '/tryon'
     | '/product/$productId'
   id:
     | '__root__'
@@ -155,7 +144,6 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/shorts'
-    | '/tryon'
     | '/product/$productId'
   fileRoutesById: FileRoutesById
 }
@@ -169,7 +157,6 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SearchRoute: typeof SearchRoute
   ShortsRoute: typeof ShortsRoute
-  TryonRoute: typeof TryonRoute
   ProductProductIdRoute: typeof ProductProductIdRoute
 }
 
@@ -238,13 +225,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShortsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tryon': {
-      id: '/tryon'
-      path: '/tryon'
-      fullPath: '/tryon'
-      preLoaderRoute: typeof TryonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/product/$productId': {
       id: '/product/$productId'
       path: '/product/$productId'
@@ -265,7 +245,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SearchRoute: SearchRoute,
   ShortsRoute: ShortsRoute,
-  TryonRoute: TryonRoute,
   ProductProductIdRoute: ProductProductIdRoute,
 }
 export const routeTree = rootRouteImport
