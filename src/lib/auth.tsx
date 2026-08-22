@@ -13,7 +13,6 @@ export type AuthIntent =
   | "create"
   | "bag"
   | "order"
-  | "tryon"
   | "profile"
   | "alerts"
   | "chat"
@@ -31,7 +30,6 @@ export const authCopy: Record<AuthIntent, { title: string; body: string }> = {
   create: { title: "Ready to create?", body: "Share your style with the Shopitt community." },
   bag: { title: "Keep your bag with you.", body: "Sign in so your picks stay saved wherever you open Shopitt." },
   order: { title: "Almost yours.", body: "Sign in to place your order and track every drop." },
-  tryon: { title: "See it on you.", body: "Sign in to generate, save and share your AI try-ons." },
   profile: { title: "Your style world is waiting.", body: "Sign in to build your profile, save inspiration and follow the people who inspire you." },
   alerts: { title: "Stay in the loop.", body: "Sign in to follow creators, receive reactions and never miss what's happening on Shopitt." },
   chat: { title: "Your conversations live here.", body: "Sign in to connect with creators, sellers and your community." },
